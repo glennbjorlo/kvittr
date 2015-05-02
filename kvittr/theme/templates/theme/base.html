@@ -16,7 +16,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Register</a></li>
+            <li><a href="{% url 'userregister' %}">Register</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -24,22 +24,13 @@
 
     <div class="container">
     <br>
-      <div class="starter-template">
-        <h1>Welcome to Kvittr</h1>
-      </div>
+   
         <br>
-        <form class="form-signin">
-        
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-      
+        {% block content %}
+		{% endblock %}
 
     </div><!-- /.container -->
-
+	
 
     
 
