@@ -17,3 +17,22 @@ def userregister(request):
 		user.save()
 		context['user_saved_successfully'] = True
 	return render(request, 'accounts/registration.html', context)
+	
+
+def userlogin(request):
+	context = {}
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			login(request, user)
+			return redirect('frontpage')
+		else:
+			context['login_failed'] = True
+	return render(request, 'accounts/login.html', context)
+
+
+def userlogout(request):
+	logout(request)
+	return redirect('frontpage')
