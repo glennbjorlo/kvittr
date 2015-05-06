@@ -8,13 +8,12 @@
 			<ul class="nav nav-pills pull-right">
 			{% if user.is_anonymous %}
 				<li role="presentation"><a href="{% url 'frontpage' %}">Home</a></li>
-				<li role="presentation"><a href="#">The Wall</a></li>
 				<li role="presentation"><a href="{% url 'userlogin' %}">Log in</a></li>
 				<li role="presentation"><a href="{% url 'userregister' %}">Register</a></li>
 			{% else %}
 				<li role="presentation"><a href="#">{{ user.username }}</a></li>
 				<li role="presentation"><a href="{% url 'frontpage' %}">Home</a></li>
-				<li role="presentation"><a href="#">The Wall</a></li>
+				<li role="presentation"><a href="#">Wall</a></li>
 				<li role="presentation"><a href="{% url 'userlogout' %}">Log out</a></li>
 			{% endif %}
 			</ul>
