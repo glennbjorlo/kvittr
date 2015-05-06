@@ -3,14 +3,17 @@
 {% block pagecontent%}
 
 {% if user.is_anonymous %}
-<h1>Welcome to Kvittr</h1>
-<br>
-<p>Log in:</p>
-<a class="btn btn-primary btn-lg" href="#">Log in</a>
-<br>
-<p>Sign up</p>
-<a class="btn btn-primary btn-lg" href="#">Sign up</a>
+	<div class="jumbotron">
+		<h2>Hello, and welcome to</h2>
+		<br>
+		<img src="static/theme/images/kvittr.png"></img>
+		<br>
+		<br>
+		<p><a class="btn btn-lg btn-success" href="{% url 'userregister' %}" role="button">Sign up today</a></p>
+	</div>
 {% else %}
-<h1>Welcome {{ user.username }} </h1>
+	<div class="jumbotron">
+		<h1>Welcome {{ user.username }} </h1>
+	</div>
 {% endif %}
 {% endblock %}
