@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'theme',
     'accounts',
+    'kv_messages',
 )
 
 MIDDLEWARE_CLASSES = (
