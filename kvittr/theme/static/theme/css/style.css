@@ -123,3 +123,17 @@ margin-left:10px;
 .navbar-brand img{
 width:125px;
 }
+
+#textareacomment{
+width:250px;
+height:100px;
+}
+
+textarea{
+resize:none;
+}
+
+
+
+
+

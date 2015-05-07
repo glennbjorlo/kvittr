@@ -1,0 +1,39 @@
+{% extends 'theme/base.html' %}
+
+{% block pagecontent %}
+
+<div id="allcomments">
+{% if user.is_anonymous %} 
+<h3>Hello</h3>
+	<!-- forløkke  
+
+		<div id="usercomment">
+		<h5>{ message.uname }</h5>
+		<h5>{ message.created_datetime }</h5>
+		<p>{ message.umessage }</p>
+		</div>
+
+	endfor-->
+{% else %}
+
+<form method="POST" action="#">
+	<div class="form-group">
+		<label for="textareacomment">Post a kveet</label><br>
+		<textarea name="comment" id="textareacomment" maxlength="140" required></textarea>
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<!-- forløkke 
+
+		<div id="usercomment">
+		<h5>{ message.uname }</h5>
+		<h5>{ message.created_datetime }</h5>
+		<p>{ message.umessage }</p>
+		</div>
+
+	endfor-->
+
+{% endif %}
+</div>
+{% endblock %}
