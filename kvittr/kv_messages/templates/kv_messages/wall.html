@@ -4,35 +4,38 @@
 
 <div id="allcomments">
 {% if user.is_anonymous %} 
-<h3>Hello</h3>
-	<!-- forløkke  
+	
+	{% for message in kv_messages %}
+	
+	<div id="wrapcomment">
+		<span id="spanusername">{{ message.uname }}</span>
+		<span id="spandate">{{ message.created_datetime }}</span>
+		<p id="usermessage">{{ message.umessage }}</p>
+		<a href="#">...MORE...</a>
+	</div>
 
-		<div id="usercomment">
-		<h5>{ message.uname }</h5>
-		<h5>{ message.created_datetime }</h5>
-		<p>{ message.umessage }</p>
-		</div>
+	{% endfor %}
 
-	endfor-->
 {% else %}
 
-<form method="POST" action="#">
-	<div class="form-group">
-		<label for="textareacomment">Post a kveet</label><br>
-		<textarea name="comment" id="textareacomment" maxlength="140" required></textarea>
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>
-
-<!-- forløkke 
-
-		<div id="usercomment">
-		<h5>{ message.uname }</h5>
-		<h5>{ message.created_datetime }</h5>
-		<p>{ message.umessage }</p>
+	<form method="POST" action="#">
+		<div class="form-group">
+			<label for="textareacomment">Post a kveet</label><br>
+			<textarea name="comment" id="textareacomment" maxlength="140" required></textarea>
 		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+	<br>
+	{% for message in kv_messages %} 
 
-	endfor-->
+	<div id="wrapcomment">
+		<span id="spanusername">{{ message.uname }}</span>
+		<span id="spandate">{{ message.created_datetime }}</span>
+		<p id="usermessage">{{ message.umessage }}</p>
+		<a href="#">...MORE...</a>	
+	</div>
+
+	{% endfor %}
 
 {% endif %}
 </div>

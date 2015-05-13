@@ -125,12 +125,35 @@ width:125px;
 }
 
 #textareacomment{
-width:250px;
+width:700px;
 height:100px;
 }
 
 textarea{
 resize:none;
+}
+
+#wrapcomment{
+width:auto;
+height:auto;
+background-color:#E0E0E0;
+padding:10px 50px 10px 50px;
+margin-bottom:20px;
+}
+
+
+#spanusername{
+font-size:large;
+font-weight:bold;
+padding-right:10px;
+}
+
+#spandate{
+color:#505050;
+}
+
+#usermessage{
+margin-top:20px;
 }
 
 
