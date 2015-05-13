@@ -1,7 +1,8 @@
 {% extends 'theme/base_site.html' %}
+{% load staticfiles %}
 {% block body %}
 
-	
+
 <div class="container">
 	<div class="header clearfix">
 		<nav>
@@ -19,7 +20,7 @@
 			{% endif %}
 			</ul>
 		</nav>
-			<a class="navbar-brand" href="{% url 'frontpage' %}"><img src="static/theme/images/kvittr.png"></img></a>
+			<a class="navbar-brand" href="{% url 'frontpage' %}"><img src="{% static 'theme/images/kvittr.png' %}"></img></a>
 	</div>
 
 	{% block content %}

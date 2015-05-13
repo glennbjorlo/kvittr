@@ -1,12 +1,12 @@
 {% extends 'theme/base.html' %}
-
+{% load staticfiles %}
 {% block pagecontent%}
 
 {% if user.is_anonymous %}
 	<div class="jumbotron">
 		<h2>Hello, and welcome to</h2>
 		<br>
-		<img src="static/theme/images/kvittr.png"></img>
+		<img src="{% static 'theme/images/kvittr.png' %}"></img>
 		<br>
 		<br>
 		<p><a class="btn btn-primary btn-lg" href="{% url 'userregister' %}" role="button">Sign up today</a></p>
