@@ -25,6 +25,8 @@ SECRET_KEY = 'xteqkbtts$r=awnhk(i_du#4i$-^)b^=oi$jr1_!!8&-*hp4+3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEMPLATE_DEBUG = True
+
 ALLOWED_HOSTS = []
 
 

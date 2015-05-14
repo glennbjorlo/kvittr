@@ -11,14 +11,14 @@
 		<span id="spanusername">{{ message.uname }}</span>
 		<span id="spandate">{{ message.created_datetime }}</span>
 		<p id="usermessage">{{ message.umessage }}</p>
-		<a href="#">...MORE...</a>
+		<a href="{% url 'message_details' message.id %}">...MORE...</a>
 	</div>
 
 	{% endfor %}
 
 {% else %}
 
-	<form method="POST" action="#">
+	<form method="POST" action="{% url 'create_new_message' %}">{% csrf_token %}
 		<div class="form-group">
 			<label for="textareacomment">Post a kveet</label><br>
 			<textarea name="comment" id="textareacomment" maxlength="140" required></textarea>
@@ -32,7 +32,7 @@
 		<span id="spanusername">{{ message.uname }}</span>
 		<span id="spandate">{{ message.created_datetime }}</span>
 		<p id="usermessage">{{ message.umessage }}</p>
-		<a href="#">...MORE...</a>	
+		<a href="{% url 'message_details' message.id %}">...MORE...</a>	
 	</div>
 
 	{% endfor %}
