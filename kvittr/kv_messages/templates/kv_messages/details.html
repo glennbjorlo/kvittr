@@ -3,13 +3,13 @@
 {% block pagecontent %}
 
 <div class="content">
-	<span id="spanusername">{{ message.uname }}</span>
-	<span id="spandate">{{ message.created_datetime }}</span>
-	<p id="usermessage">{{ message.umessage }}</p>
+	<span id="spanusername">{{ kv_message.uname }}</span>
+	<span id="spandate">{{ kv_message.created_datetime }}</span>
+	<p id="usermessage">{{ kv_message.umessage }}</p>
 	{% if user.is_anonymous %}
-	<span class="glyphicon glyphicon-thumbs-up">{{ message.thumbs_up }}</span>
+	<span class="glyphicon glyphicon-thumbs-up">{{ kv_message.thumbs_up }}</span>
 	{% else %}
-	<a href="#">VOTE</a> <span class="glyphicon glyphicon-thumbs-up">{{ message.thumbs_up }}</span>		
+	<a href="#">VOTE</a> <span class="glyphicon glyphicon-thumbs-up">{{ kv_message.thumbs_up }}</span>		
 	{% endif %}
 </div>
 
