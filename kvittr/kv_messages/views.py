@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.template import RequestContext
 
 from kv_messages.models import Message
@@ -26,7 +27,12 @@ def message_details(request, message_id):
 	return render(request, 'kv_messages/details.html', context)
 
 
-#def create_new_message(request):
+def give_thumbs_up(request, message_id):
+	kv_message = Message.objects.get(pk=message_id)
+	kv_message.thumbs_up = kv_message.thumbs_up+1
+	kv_message.save()
+	data = {'thumbs_up':kv_message.thumbs_up}
+	return JsonResponse(data)
 	
 	
 	
