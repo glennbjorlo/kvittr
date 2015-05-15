@@ -31,7 +31,7 @@ def give_thumbs_up(request, message_id):
 	kv_message = Message.objects.get(pk=message_id)
 	kv_message.thumbs_up = kv_message.thumbs_up+1
 	kv_message.save()
-	data = {'thumbs_up':kv_message.thumbs_up}
+	data = {'thumbs_up': kv_message.thumbs_up}
 	return JsonResponse(data)
 	
 	

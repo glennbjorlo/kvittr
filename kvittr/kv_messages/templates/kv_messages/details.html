@@ -9,7 +9,8 @@
 	{% if user.is_anonymous %}
 	<span class="glyphicon glyphicon-thumbs-up">{{ kv_message.thumbs_up }}</span>
 	{% else %}
-	<a id="thumbup" href="#">VOTE</a> <span class="glyphicon glyphicon-thumbs-up">{{ kv_message.thumbs_up }}</span>		
+	<a id="thumbup" href="#">VOTE</a> <span class="glyphicon glyphicon-thumbs-up">{{ kv_message.thumbs_up }}</span>	
+	<input type="hidden" id="urlthumbup" value="/kv_messages/{{ kv_message.id }}/give_thumbs_up">	
 	{% endif %}
 </div>
 
