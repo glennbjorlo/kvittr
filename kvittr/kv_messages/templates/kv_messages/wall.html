@@ -16,6 +16,18 @@
 
 	{% endfor %}
 
+	{% if kv_messages.has_previous %}
+
+	<a href="?page={{ kv_messages.previous_page_number }}">Previous</a>
+
+	{% endif %}
+
+	{% if kv_messages.has_next %}
+
+	<a href="?page={{ kv_messages.next_page_number }}">Next</a>
+
+	{% endif %}
+
 {% else %}
 
 	<form method="POST">{% csrf_token %}
@@ -37,6 +49,18 @@
 	</div>
 
 	{% endfor %}
+
+	{% if kv_messages.has_previous %}
+
+	<a href="?page={{ kv_messages.previous_page_number }}">Previous</a>
+
+	{% endif %}
+
+	{% if kv_messages.has_next %}
+
+	<a href="?page={{ kv_messages.next_page_number }}">Next</a>
+
+	{% endif %}
 
 {% endif %}
 </div>
