@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.template import RequestContext
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from kv_messages.models import Message
 
@@ -16,7 +17,15 @@ def message_listing(request):
 		new_message.umessage = request.POST.get('comment')
 		new_message.created_datetime = timezone.now()
 		new_message.save()
-	kv_messages = Message.objects.all()
+	kv_messages = Message.objects.all().order_by('-id')
+	page_number = request.GET.get('page')
+	paginator = Paginator(kv_messages, 5)
+	try:
+		kv_messages = paginator.page(page_number)
+	except PageNotAnInteger:
+		kv_messages = paginator.page(1)
+	except EmptyPage:
+		kv_messages = paginator.page(paginator.num_pages)
 	context = {'kv_messages': kv_messages}
 	return render(request, 'kv_messages/wall.html', context)
 
