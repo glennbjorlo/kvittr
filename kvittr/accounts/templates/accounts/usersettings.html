@@ -1,0 +1,19 @@
+{% extends 'theme/base.html' %}
+{% block pagecontent %} 
+<h1>Update profile settings</h1>
+<br>
+
+<form class="form-registration" method="POST" action="{% url 'updateprofile' %}">{% csrf_token %}
+	
+    <label for="upFirstName">First Name</label>
+    <input type="text" class="form-control" name="updatefirstname" id="upFirstName" placeholder="Enter First Name" value="{{user.first_name}}">
+  
+    <label for="upLastName">Last Name</label>
+    <input type="text" class="form-control" name="updatelastname" id="upLastName" placeholder="Enter Last Name" value="{{user.last_name}}">
+
+    <label for="upEmail">Email address</label>
+    <input type="email" name="updateemail" id="upEmail" class="form-control" placeholder="Enter email" value="{{user.email}}">
+	<br>
+	<button type="submit" class="btn btn-default">Update</button>
+</form>
+{% endblock %}

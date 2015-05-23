@@ -15,6 +15,7 @@
 			{% else %}
 				<li role="presentation"><a href="{% url 'frontpage' %}">{{ user.username }}</a></li>
 				<li role="presentation"><a href="{% url 'message_listing' %}">The Wall</a></li>
+				<li role="presentation"><a href="{% url 'updateprofile' %}">Settings</a></li>
 				<li role="presentation"><a href="{% url 'userlogout' %}">Log out</a></li>
 			{% endif %}
 			</ul>

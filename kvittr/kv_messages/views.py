@@ -19,7 +19,7 @@ def message_listing(request):
 		new_message.save()
 	kv_messages = Message.objects.all().order_by('-id')
 	page_number = request.GET.get('page')
-	paginator = Paginator(kv_messages, 5)
+	paginator = Paginator(kv_messages, 10)
 	try:
 		kv_messages = paginator.page(page_number)
 	except PageNotAnInteger:
