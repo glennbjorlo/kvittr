@@ -4,4 +4,4 @@ from django.db import models
 
 class UpdatePicture(models.Model):
 	uname = models.CharField(max_length=30)
-	user_picture = models.ImageField(upload_to='static/theme/user_images/', default='static/theme/images/675432109.jpg')
+	user_picture = models.ImageField(upload_to='theme/user_images/')
