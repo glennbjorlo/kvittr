@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from accounts.models import UpdatePicture
 
 # Create your views here.
 
@@ -47,6 +48,15 @@ def updateprofile(request):
 		userprofile.email = request.POST.get('updateemail')
 		userprofile.save()
 	return render(request, 'accounts/usersettings.html')
+
+
+def uploadpic(request):
+	if request.method == 'POST':
+		userimage = UpdatePicture()
+		userimage.uname = request.user
+		userimage.user_picture = request.POST.get('profilepicture')
+		userimage.save()
+	return render(request, 'accounts/pic.html')
 	
 
 

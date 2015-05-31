@@ -6,4 +6,5 @@ urlpatterns = patterns('',
 	url(r'^login$', views.userlogin, name='userlogin'),
 	url(r'^logout$', views.userlogout, name='userlogout'),
 	url(r'^settings$', views.updateprofile, name='updateprofile'),
+	url(r'^profilepic$', views.uploadpic, name='updatepic'),
 )

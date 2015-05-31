@@ -1,0 +1,13 @@
+{% extends 'theme/base.html' %}
+{% block pagecontent %} 
+
+<h2>Upload a profile picture</h2>
+<br>
+<form action="{% url 'updatepic' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+	<input type="file" name="profilepicture" id="picture">
+
+	<input type="submit" value="Submit">
+
+</form>
+{% endblock %}
