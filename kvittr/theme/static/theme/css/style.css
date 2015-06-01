@@ -1,3 +1,6 @@
+/* Bootstrap */
+
+
 body {
  padding-top: 20px;
   padding-bottom: 20px;
@@ -113,6 +116,8 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/* Other */
 
 .form-registration{
 max-width:400px;

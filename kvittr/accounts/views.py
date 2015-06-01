@@ -56,6 +56,7 @@ def uploadpic(request):
 		userimage.uname = request.user
 		userimage.user_picture = request.POST.get('profilepicture')
 		userimage.save()
+	allimages = UpdatePicture.objects.all()
 	return render(request, 'accounts/pic.html')
 	
 

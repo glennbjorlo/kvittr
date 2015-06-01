@@ -5,3 +5,5 @@ from django.db import models
 class UpdatePicture(models.Model):
 	uname = models.CharField(max_length=30)
 	user_picture = models.ImageField(upload_to='theme/user_images/')
+	def __unicode__(self):
+		return self.uname
