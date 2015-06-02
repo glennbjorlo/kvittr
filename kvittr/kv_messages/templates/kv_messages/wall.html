@@ -1,4 +1,5 @@
 {% extends 'theme/base.html' %}
+{% load staticfiles %}
 
 {% block pagecontent %}
 
@@ -30,10 +31,11 @@
 
 {% else %}
 
-	<form method="POST">{% csrf_token %}
+	<form name="kveetmessage" method="POST" onsubmit="return validate();">{% csrf_token %}
 		<div class="form-group">
 			<label for="textareacomment">Post a kveet</label><br>			
 			<textarea name="comment" id="textareacomment" maxlength="140" required></textarea>
+			<div id="errormessage"></div>
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
@@ -63,4 +65,7 @@
 
 {% endif %}
 </div>
+{% endblock %}
+{% block valijavascript %}
+<script src="{% static 'theme/js/validate.js' %}"></script>
 {% endblock %}
