@@ -16,8 +16,11 @@ def userregister(request):
 		user.username = request.POST.get('username')
 		user.email = request.POST.get('email')
 		user.set_password(request.POST.get('password'))
-		user.save()
-		context['user_saved_successfully'] = True
+		if not User.objects.filter(username=user.username).exists() | User.objects.filter(email=user.email).exists():
+			context['user_saved_successfully'] = True
+			user.save()
+		else:	
+			context['user_not_saved'] = True					
 	return render(request, 'accounts/registration.html', context)
 	
 
@@ -41,13 +44,17 @@ def userlogout(request):
 
 
 def updateprofile(request):
+	context = {}
 	if request.method == 'POST':
 		userprofile = User.objects.get(username=request.user)
 		userprofile.first_name = request.POST.get('updatefirstname')
 		userprofile.last_name = request.POST.get('updatelastname')
 		userprofile.email = request.POST.get('updateemail')
-		userprofile.save()
-	return render(request, 'accounts/usersettings.html')
+		if not User.objects.filter(email=userprofile.email).exists():
+			userprofile.save()
+		else:
+			context['user_not_saved'] = True
+	return render(request, 'accounts/usersettings.html', context)
 
 
 def uploadpic(request):

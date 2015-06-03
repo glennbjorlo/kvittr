@@ -4,6 +4,9 @@
 <br>
 {% if user_saved_successfully %}
 	<div class="alert alert-success">User successfully created</div>
+
+{% elif user_not_saved %}
+	<div class="alert alert-danger" role="alert">Username or email already exists</div>
 {% endif %} 
 {% if user.is_anonymous %}
 	<form class="form-registration" method="POST" action="{% url 'userregister' %}">{% csrf_token %}

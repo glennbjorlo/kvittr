@@ -5,6 +5,9 @@
 {% if user.is_anonymous %}
 
 {% else %}
+{% if user_not_saved %}
+	<div class="alert alert-danger" role="alert">Email already exists</div>
+{% endif %} 
 <form class="form-registration" method="POST" action="{% url 'updateprofile' %}">{% csrf_token %}
 
 	<label for="upFirstName">First Name</label>
