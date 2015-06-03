@@ -2,7 +2,7 @@
 
 function validate() {
 
-var regexp = /^[A-Za-zæøåÆØÅ0-9 _]{1,140}(\?)$/;
+var regexp = /^[\?A-Za-zæøåÆØÅ0-9 _]{1,140}$/;
 
 var errormessage = document.getElementById('errormessage');
 
