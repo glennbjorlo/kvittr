@@ -44,17 +44,13 @@ def userlogout(request):
 
 
 def updateprofile(request):
-	context = {}
 	if request.method == 'POST':
 		userprofile = User.objects.get(username=request.user)
 		userprofile.first_name = request.POST.get('updatefirstname')
 		userprofile.last_name = request.POST.get('updatelastname')
 		userprofile.email = request.POST.get('updateemail')
-		if not User.objects.filter(email=userprofile.email).exists():
-			userprofile.save()
-		else:
-			context['user_not_saved'] = True
-	return render(request, 'accounts/usersettings.html', context)
+		userprofile.save()
+	return render(request, 'accounts/usersettings.html')
 
 
 def uploadpic(request):
